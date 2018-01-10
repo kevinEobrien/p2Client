@@ -1,0 +1,38 @@
+a {
+  margin: 0rem 1rem;
+}
+body {
+  display: flex;
+  flex-flow: column;
+  background-image: url("../assets/kelli-tungay-309722.jpg");
+  background-size: cover;
+}
+.home {
+  background-color: cornflowerblue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 10rem;
+}
+.resource-list {
+  margin: 2rem;
+}
+.submit-button {
+  padding: 1rem;
+}
+ul{
+  color: #3c3c3c; 
+  list-style-type: disc!important;
+  font-weight: bold;
+}
+li {
+  list-style-type: disc!important;
+  display: flex;
+  flex-flow: column;
+  margin: 1rem;
+  justify-content: flex-start;
+}

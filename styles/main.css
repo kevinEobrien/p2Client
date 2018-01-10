@@ -1,4 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Pacifico|Sedgwick+Ave+Display");
+body {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url("../assets/kelli-tungay-309722.jpg");
+  background-size: cover;
+}
+button {
+  margin: 1rem;
+  background-color: wheat;
+  border-radius: 4px;
+  font-weight: bold;
+}
+form {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+h1 {
+  padding: 1rem 1rem 1rem 1rem;
+  font-family: "Sedwig Ave Display", cursive;
+  font-size: 3rem;
+}
+h2 {
+  padding: 0rem 1rem 1rem;
+  font-family: "Pacifico", cursive;
+  font-size: 2rem;
+}
+.home {
+  padding: 1rem;
+}
+input[type="text"] {
+  background-color: white;
+  color: black;
+}
+label {
+  font-weight: bold;
+}
+option {
+  font-weight: bold;
+  color: red;
+}
+select {
+  width: 120px;
+  padding: 10px;
+}
+.subhead {
+}
+.submit-button {
+  padding: 1rem;
+}
+.suggestions {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
 #thumb {
-  transform: scale(.3);
+  transform: scale(0.3);
   transform-origin: 0 0;
 }
