@@ -1,4 +1,5 @@
 const url = "https://stark-scrubland-13367.herokuapp.com/";
+const urlB = "https://stark-scrubland-13367.herokuapp.com/suggestions";
 let searchterm = localStorage.getItem("searchterm");
 let resource = localStorage.getItem("resource");
 var ul = document.querySelector("ul");
@@ -6,7 +7,6 @@ var button = document.querySelector("button");
 button.addEventListener("click", goHome);
 
 function goHome() {
-  console.log("function is GO");
   location.href = "index.html";
 }
 
@@ -44,6 +44,7 @@ function populateList(data) {
   newCard.appendChild(link);
   ul.appendChild(newCard);
 }
+
 function noresults() {
   var errorMessage = document.createElement("p");
   errorMessage.innerText = "No results match your search. Would you like to suggest a resource?";
@@ -51,6 +52,7 @@ function noresults() {
   var form = document.createElement("form");
   var formDiv = document.createElement("div");
   var descriptionInput = document.createElement("input");
+  descriptionInput.classList.add("describe");
   var descriptionLabel = document.createElement("label");
   descriptionLabel.innerHTML = "Description:";
   formDiv.appendChild(descriptionLabel);
@@ -60,6 +62,7 @@ function noresults() {
   var linkLabel = document.createElement("label");
   linkLabel.innerHTML = "Link:";
   var linkInput = document.createElement("input");
+  linkInput.classList.add("link");
   formDiv2.appendChild(linkLabel);
   formDiv2.appendChild(linkInput);
   form.appendChild(formDiv2);
@@ -71,10 +74,14 @@ function noresults() {
   ul.appendChild(form);
 }
 
-function postData() {
-  var descriptor = descriptionInput.value;
-  var linkage = linkInput.value;
-  fetch(url, {
+function postData(event) {
+  event.preventDefault();
+  var pTag = document.createElement("p");
+  var body = document.querySelector("body");
+  body.appendChild(pTag);
+  var descriptor = document.querySelector(".describe").value;
+  var linkage = document.querySelector(".link").value;
+  fetch(urlB, {
     headers: new Headers({ "Content-Type": "application/json" }),
     method: "POST",
     body: JSON.stringify({
@@ -83,10 +90,9 @@ function postData() {
     })
   })
     .then(resp => resp.json())
-    .then(function(response) {
-      if (response.error) {
-        console.log("Error");
-      }
+    .then(function (resp) {
+      pTag.innerText = Object.keys(resp)[0];
     })
     .catch(console.error);
+  setTimeout(function(){ pTag.innerText = "" ;}, 4000);
 }

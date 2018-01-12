@@ -1,7 +1,9 @@
 var ul = document.querySelector("ul");
 var home = document.querySelector(".home");
 var suggestions = document.querySelector(".suggestions");
-const url = "https://stark-scrubland-13367.herokuapp.com/sugggestions";
+var descriptor = document.querySelector(".describe");
+var linkage = document.querySelector(".link");
+const url = "https://stark-scrubland-13367.herokuapp.com/suggestions";
 home.addEventListener("click", goHome);
 function goHome() {
   console.log("function is GO");
@@ -11,10 +13,6 @@ function goHome() {
 noresults();
 
 function noresults() {
-  var errorMessage = document.createElement("p");
-  errorMessage.innerText = "Would you like to suggest a resource?";
-  errorMessage.classList.add("subhead");
-  suggestions.appendChild(errorMessage);
   var form = document.createElement("form");
   var formDiv = document.createElement("div");
   var descriptionInput = document.createElement("input");
@@ -33,13 +31,19 @@ function noresults() {
   formDiv2.appendChild(linkInput);
   form.appendChild(formDiv2);
   var button = document.createElement("button");
+  var pTag = document.createElement("p");
   button.classList.add("submit-button");
   button.innerText = "SUBMIT";
   form.addEventListener("submit", postData);
   form.appendChild(button);
   suggestions.appendChild(form);
+  form.appendChild(pTag);
 }
-function postData() {
+
+function postData(event) {
+  var pTag = document.querySelector("p");
+  event.preventDefault();
+  console.log ("function is running");
   var descriptor = document.querySelector(".describe").value;
   var linkage = document.querySelector(".link").value;
   fetch(url, {
@@ -51,10 +55,9 @@ function postData() {
     })
   })
     .then(resp => resp.json())
-    .then(function(response) {
-      if (response.error) {
-        console.log("Error");
-      }
+    .then(function (resp) {
+      pTag.innerText = Object.keys(resp)[0];
     })
     .catch(console.error);
+  setTimeout(function(){ pTag.innerText = "" ;}, 4000);
 }

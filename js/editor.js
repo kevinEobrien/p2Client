@@ -31,7 +31,7 @@ fetch(url)
     console.log(choices);
     choices.forEach(function (choice){
       populateList(choice);
-    });
+    }); 
   })
   .catch(console.error);
 

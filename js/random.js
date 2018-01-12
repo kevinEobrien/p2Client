@@ -7,7 +7,7 @@ var randomData;
 function goHome() {
   location.href = "index.html";
 }
-
+console.log ("file is being read");
 
 
 function populateList(data) {

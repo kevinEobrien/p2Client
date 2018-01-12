@@ -28,6 +28,9 @@ h2 {
   font-family: "Pacifico", cursive;
   font-size: 2rem;
 }
+h3{
+  padding: 1rem 0rem 0rem 0rem;
+}
 .home {
   padding: 1rem;
 }
@@ -40,13 +43,12 @@ label {
 }
 option {
   font-weight: bold;
-  color: red;
+  color: cornflowerblue;
+  width: 5rem;
 }
 select {
-  width: 120px;
+  width: 140px;
   padding: 10px;
-}
-.subhead {
 }
 .submit-button {
   padding: 1rem;
