@@ -28,7 +28,7 @@ h2 {
   font-family: "Pacifico", cursive;
   font-size: 2rem;
 }
-h3{
+h3 {
   padding: 1rem 0rem 0rem 0rem;
 }
 .home {
@@ -61,4 +61,16 @@ select {
 #thumb {
   transform: scale(0.3);
   transform-origin: 0 0;
+}
+.random {
+  width: 8rem;
+  height: 2rem;
+}
+.editor {
+  width: 8rem;
+  height: 2rem;
+}
+.suggest {
+  width: 8rem;
+  height: 2rem;
 }
