@@ -8,7 +8,6 @@ var editor = document.querySelector(".editor");
 editor.addEventListener("click", navigateEditor);
 
 function navigateList(event) {
-  console.log("it works");
   event.preventDefault();
   localStorage.setItem("searchterm", event.target[0].value);
   localStorage.setItem("resource", event.target[1].value);

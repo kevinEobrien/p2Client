@@ -1,12 +1,11 @@
-var ul = document.querySelector("ul");
 var home = document.querySelector(".home");
 var suggestions = document.querySelector(".suggestions");
 var descriptor = document.querySelector(".describe");
 var linkage = document.querySelector(".link");
 const url = "https://stark-scrubland-13367.herokuapp.com/suggestions";
 home.addEventListener("click", goHome);
+
 function goHome() {
-  console.log("function is GO");
   location.href = "index.html";
 }
 
@@ -43,11 +42,12 @@ function noresults() {
 function postData(event) {
   var pTag = document.querySelector("p");
   event.preventDefault();
-  console.log ("function is running");
   var descriptor = document.querySelector(".describe").value;
   var linkage = document.querySelector(".link").value;
   fetch(url, {
-    headers: new Headers({ "Content-Type": "application/json" }),
+    headers: new Headers({
+      "Content-Type": "application/json"
+    }),
     method: "POST",
     body: JSON.stringify({
       description: descriptor,
@@ -55,9 +55,11 @@ function postData(event) {
     })
   })
     .then(resp => resp.json())
-    .then(function (resp) {
+    .then(function(resp) {
       pTag.innerText = Object.keys(resp)[0];
     })
     .catch(console.error);
-  setTimeout(function(){ pTag.innerText = "" ;}, 4000);
+  setTimeout(function() {
+    pTag.innerText = "";
+  }, 4000);
 }

@@ -7,8 +7,6 @@ var randomData;
 function goHome() {
   location.href = "index.html";
 }
-console.log ("file is being read");
-
 
 function populateList(data) {
   var newCard = document.createElement("li");
@@ -25,10 +23,9 @@ function populateList(data) {
 }
 fetch(url)
   .then(response => response.json())
-  .then (function (response){
-    let resources = response.data;
+  .then(function(response) {
+    let resources = response;
     randomData = resources[Math.floor(Math.random() * resources.length)];
-    console.log(randomData);
     populateList(randomData);
   })
   .catch(console.error);

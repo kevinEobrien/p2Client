@@ -5,15 +5,15 @@ let resource = localStorage.getItem("resource");
 var ul = document.querySelector("ul");
 var button = document.querySelector("button");
 button.addEventListener("click", goHome);
+console.log(searchterm + " is the search " + resource + " is the resource ");
 
 function goHome() {
   location.href = "index.html";
 }
-
 fetch(url)
   .then(response => response.json())
   .then(function(response) {
-    let searchable = response.data;
+    let searchable = response;
     matchSearch(searchable);
   })
   .catch(console.error);
@@ -90,9 +90,11 @@ function postData(event) {
     })
   })
     .then(resp => resp.json())
-    .then(function (resp) {
+    .then(function(resp) {
       pTag.innerText = Object.keys(resp)[0];
     })
     .catch(console.error);
-  setTimeout(function(){ pTag.innerText = "" ;}, 4000);
+  setTimeout(function() {
+    pTag.innerText = "";
+  }, 4000);
 }
